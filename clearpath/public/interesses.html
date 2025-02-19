@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interesses - ClearPath</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/oportunidades.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo-link">
+                <img src="/images/logo.png" alt="ClearPath" class="logo">
+            </a>
+        </div>
+        
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="/paginainicial.html">Página Inicial</a></li>
+                <li><a href="/oportunidades">Oportunidades</a></li>
+                <li><a href="/interesses">Interesses</a></li>
+                <li><a href="/contactos">Contactos</a></li>
+                <li><a href="/sobre">Sobre Nós</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <div class="search-container">
+                <input type="text" placeholder="Pesquisar..." class="search-input">
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="auth-container">
+                <button class="signup-button">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="opportunities-content">
+        <div class="opportunities-container">
+            <h1>Vagas Interessadas</h1>
+            
+            <!-- Job list first -->
+            <div id="interestedJobs" class="job-list">
+                <!-- Jobs will be inserted here by JavaScript -->
+            </div>
+
+            <!-- Empty state below -->
+            <div id="emptyState" class="empty-state">
+                <img src="/images/example.png" alt="Exemplo de como mostrar interesse">
+                <p>Vá até à página de <a href="/oportunidades">Oportunidades</a> e clique no botão "Interessa-me!" nas vagas que lhe interessarem.</p>
+                <div class="demo-button">
+                    <button class="interest-btn">Interessa-me!</button>
+                    <span class="arrow-pointer">← Clique aqui nas vagas que gostar</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/interesses.js"></script>
+</body>
+</html>

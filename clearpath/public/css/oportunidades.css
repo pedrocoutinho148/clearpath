@@ -1,0 +1,317 @@
+/* Reset margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    position: relative !important;
+    margin: 0 !important;
+}
+
+.opportunities-content {
+    padding: 20px 40px;
+    background-color: #f8f9fa;
+    margin: 0 !important;
+}
+
+.opportunities-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.opportunities-container h1 {
+    margin-bottom: 2rem;
+    color: #333;
+    font-size: 2rem;
+}
+
+/* Grid layout for job cards */
+.job-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Three columns */
+    gap: 25px;  /* Space between cards */
+    padding: 20px 0;
+}
+
+/* Individual job card */
+.job-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.company-info {
+    display: flex;
+    gap: 15px;
+}
+
+.company-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    object-fit: contain;
+    padding: 2px;
+    border: 1px solid #eee;
+}
+
+.company-name-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.company-name-rating h3 {
+    color: #666;
+    font-size: 14px;
+}
+
+.rating {
+    color: #ffc107;
+    font-size: 14px;
+}
+
+.company-details h2 {
+    color: #333;
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.location {
+    color: #666;
+    font-size: 13px;
+}
+
+.job-details {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.salary {
+    color: #28a745;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.experience {
+    color: #666;
+    font-size: 13px;
+}
+
+.interested-count {
+    color: #666;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.interest-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.interest-btn:hover {
+    background: #0056b3;
+}
+
+.interest-btn.interested {
+    background: #e9ecef;
+    color: #666;
+    cursor: default;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .job-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .job-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .opportunities-content {
+        padding: 15px;
+    }
+}
+
+.search-filter-section {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.search-bar {
+    flex: 1;  /* This makes it fill available space */
+    display: flex;
+    gap: 10px;
+    max-width: 800px;  /* Prevents it from getting too wide */
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 0 25px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.filters {
+    display: flex;
+    gap: 20px;  /* Increased gap between filters */
+    flex-wrap: nowrap;
+}
+
+.filter-select {
+    padding: 12px 20px;  /* Increased padding */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    min-width: 150px;  /* Made filters wider */
+    font-size: 15px;   /* Slightly larger text */
+    cursor: pointer;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.empty-state img {
+    width: 500px;
+    max-width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.empty-state h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.empty-state p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.empty-state a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.empty-state a:hover {
+    text-decoration: underline;
+}
+
+.demo-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.arrow-pointer {
+    color: #666;
+    font-style: italic;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 40px 0;
+    padding: 20px 0;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    border: 1px solid #e0e0e0;
+    background: white;
+    color: #333;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 40px;
+    transition: all 0.2s ease;
+}
+
+.pagination button:hover {
+    background: #f5f5f5;
+    border-color: #d0d0d0;
+}
+
+.pagination button.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination button:disabled {
+    background: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+    border-color: #e0e0e0;
+}
+
+.pagination span {
+    color: #666;
+    padding: 0 8px;
+}
+
+/* Arrow buttons */
+.pagination button:first-child,
+.pagination button:last-child {
+    font-size: 18px;
+    padding: 6px 12px;
+}

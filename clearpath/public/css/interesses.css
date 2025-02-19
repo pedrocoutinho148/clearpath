@@ -1,0 +1,58 @@
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.empty-state h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.empty-state p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.empty-state img {
+    width: 500px;  /* Adjust this based on your image size */
+    max-width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.empty-state a:hover {
+    text-decoration: underline;
+}
+
+.demo-gif {
+    width: 300px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.demo-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.arrow-pointer {
+    color: #666;
+    font-style: italic;
+}
+
+/* When jobs are present */
+.opportunities-container h1 {
+    margin-bottom: 30px;
+    color: #333;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearPath - O Seu Caminho Profissional</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo-link">
+                <!-- Try with absolute path -->
+                <img src="/images/logo.png" alt="ClearPath" class="logo" onerror="this.onerror=null; console.log('Error loading image');">
+            </a>
+        </div>
+        
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="/paginainicial.html">Página Inicial</a></li>
+                <li><a href="/oportunidades">Oportunidades</a></li>
+                <li><a href="/interesses">Interesses</a></li>
+                <li><a href="/contactos">Contactos</a></li>
+                <li><a href="/sobre">Sobre Nós</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <div class="search-container">
+                <input type="text" placeholder="Pesquisar..." class="search-input">
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="auth-container">
+                <button class="signup-button">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="home-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bem-vindo à ClearPath</h1>
+                <p class="slogan">"Onde você ficou, nós estamos aqui para conectar"</p>
+                
+                <div class="mission">
+                    <h2>A Nossa Missão</h2>
+                    <p>Simplificamos a sua transição da vida académica para o mundo profissional.</p>
+                    
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-search"></i>
+                            <h3>Pesquisa Simplificada</h3>
+                            <p>Encontre vagas de emprego adequadas ao seu perfil de forma rápida e eficiente.</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-file-alt"></i>
+                            <h3>Menos Burocracia</h3>
+                            <p>Eliminamos a papelada desnecessária no processo de candidatura.</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Validação Automática</h3>
+                            <p>Processo de validação simplificado para estudantes e empregadores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Add immediate debugging
+        window.onload = function() {
+            const logo = document.querySelector('.logo');
+            console.log('Logo element:', logo);
+            console.log('Logo src:', logo.src);
+            console.log('Logo complete:', logo.complete);
+            console.log('Logo natural size:', logo.naturalWidth, 'x', logo.naturalHeight);
+        }
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

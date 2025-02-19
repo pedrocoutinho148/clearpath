@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oportunidades - ClearPath</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/oportunidades.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo-link">
+                <!-- Try with absolute path -->
+                <img src="/images/logo.png" alt="ClearPath" class="logo" onerror="this.onerror=null; console.log('Error loading image');">
+            </a>
+        </div>
+        
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="/paginainicial.html">Página Inicial</a></li>
+                <li><a href="/oportunidades">Oportunidades</a></li>
+                <li><a href="/interesses">Interesses</a></li>
+                <li><a href="/contactos">Contactos</a></li>
+                <li><a href="/sobre">Sobre Nós</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <div class="search-container">
+                <input type="text" placeholder="Pesquisar..." class="search-input">
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="auth-container">
+                <button class="signup-button">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="opportunities-content">
+        <div class="opportunities-container">
+            <div class="search-filter-section">
+                <div class="search-bar">
+                    <input type="text" placeholder="Procurar por título, empresa ou palavras-chave...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="filters">
+                    <select class="filter-select" id="rating-filter">
+                        <option value="">Rating ⭐</option>
+                        <option value="4.5">4.5+ ⭐</option>
+                        <option value="4.0">4.0+ ⭐</option>
+                        <option value="3.5">3.5+ ⭐</option>
+                    </select>
+            
+                    <select class="filter-select" id="salary-filter">
+                        <option value="">Salário €</option>
+                        <option value="35000">35k+</option>
+                        <option value="30000">30k+</option>
+                        <option value="25000">25k+</option>
+                        <option value="20000">20k+</option>
+                    </select>
+            
+                    <select class="filter-select" id="location-filter">
+                        <option value="">Localização</option>
+                        <option value="Porto">Porto</option>
+                        <option value="Lisboa">Lisboa</option>
+                        <option value="Braga">Braga</option>
+                        <option value="Coimbra">Coimbra</option>
+                        <option value="Aveiro">Aveiro</option>
+                    </select>
+            
+                    <select class="filter-select" id="experience-filter">
+                        <option value="">Experiência</option>
+                        <option value="trainee">Trainee</option>
+                        <option value="junior">Júnior</option>
+                        <option value="graduate">Graduate</option>
+                        <option value="intern">Intern</option>
+                    </select>
+                </div>
+            </div>
+
+            <h1>Oportunidades Disponíveis</h1>
+            
+            <div class="job-list">
+                <!-- Job Card 1 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <img src="https://logo.clearbit.com/farfetch.com" alt="Farfetch" class="company-logo">
+                            <div class="company-details">
+                                <div class="company-name-rating">
+                                    <h3>Farfetch</h3>
+                                    <span class="rating">4.2<i class="fas fa-star"></i></span>
+                                </div>
+                                <h2>Desenvolvedor Web Junior</h2>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Porto, Portugal</p>
+                            </div>
+                        </div>
+                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <div class="job-details">
+                        <span class="salary">€25k-30k/ano</span>
+                        <span class="experience">0-1 anos de experiência</span>
+                        <button class="interest-btn">Interessa-me!</button>
+                    </div>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <img src="https://logo.clearbit.com/criticalsoftware.com" alt="Critical Software" class="company-logo">
+                            <div class="company-details">
+                                <div class="company-name-rating">
+                                    <h3>Critical Software</h3>
+                                    <span class="rating">4.5<i class="fas fa-star"></i></span>
+                                </div>
+                                <h2>Analista de Dados Júnior</h2>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Coimbra, Portugal</p>
+                            </div>
+                        </div>
+                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <div class="job-details">
+                        <span class="salary">€23k-28k/ano</span>
+                        <span class="experience">Recém-licenciado</span>
+                        <button class="interest-btn">Interessa-me!</button>
+                    </div>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <img src="https://logo.clearbit.com/siemens.com" alt="Siemens" class="company-logo">
+                            <div class="company-details">
+                                <div class="company-name-rating">
+                                    <h3>Siemens</h3>
+                                    <span class="rating">4.8<i class="fas fa-star"></i></span>
+                                </div>
+                                <h2>Engenheiro de Software Trainee</h2>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Lisboa, Portugal</p>
+                            </div>
+                        </div>
+                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <div class="job-details">
+                        <span class="salary">€28k-32k/ano</span>
+                        <span class="experience">Estágio Profissional</span>
+                        <button class="interest-btn">Interessa-me!</button>
+                    </div>
+                </div>
+
+                <!-- Job Card 4 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <img src="https://logo.clearbit.com/outsystems.com" alt="OutSystems" class="company-logo">
+                            <div class="company-details">
+                                <div class="company-name-rating">
+                                    <h3>OutSystems</h3>
+                                    <span class="rating">4.6<i class="fas fa-star"></i></span>
+                                </div>
+                                <h2>Junior Software Developer</h2>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Braga, Portugal</p>
+                            </div>
+                        </div>
+                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <div class="job-details">
+                        <span class="salary">€26k-31k/ano</span>
+                        <span class="experience">0-2 anos de experiência</span>
+                        <button class="interest-btn">Interessa-me!</button>
+                    </div>
+                </div>
+
+                <!-- Job Card 5 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <img src="https://logo.clearbit.com/talkdesk.com" alt="Talkdesk" class="company-logo">
+                            <div class="company-details">
+                                <div class="company-name-rating">
+                                    <h3>Talkdesk</h3>
+                                    <span class="rating">4.3<i class="fas fa-star"></i></span>
+                                </div>
+                                <h2>Frontend Developer Trainee</h2>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Porto, Portugal</p>
+                            </div>
+                        </div>
+                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <div class="job-details">
+                        <span class="salary">€24k-28k/ano</span>
+                        <span class="experience">Estágio Profissional</span>
+                        <button class="interest-btn">Interessa-me!</button>
+                    </div>
+                </div>
+
+                <!-- Job Card 6 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <img src="https://logo.clearbit.com/bosch.com" alt="Bosch" class="company-logo">
+                            <div class="company-details">
+                                <div class="company-name-rating">
+                                    <h3>Bosch</h3>
+                                    <span class="rating">4.7<i class="fas fa-star"></i></span>
+                                </div>
+                                <h2>Software Engineer Graduate</h2>
+                                <p class="location"><i class="fas fa-map-marker-alt"></i> Aveiro, Portugal</p>
+                            </div>
+                        </div>
+                        <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <div class="job-details">
+                        <span class="salary">€27k-32k/ano</span>
+                        <span class="experience">Recém-licenciado</span>
+                        <button class="interest-btn">Interessa-me!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/oportunidades.js"></script>
+    <script src="/js/interessados.js"></script>
+</body>
+</html>
