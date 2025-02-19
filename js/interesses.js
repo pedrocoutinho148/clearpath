@@ -25,15 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function removeJob(jobId) {
-        // Get current jobs from localStorage
         let interestedJobs = JSON.parse(localStorage.getItem('interestedJobs') || '[]');
-        
-        // Filter out the removed job
         interestedJobs = interestedJobs.filter(job => job.id !== jobId);
-        
-        // Update localStorage
         localStorage.setItem('interestedJobs', JSON.stringify(interestedJobs));
-
         return interestedJobs.length;
     }
 
@@ -48,25 +42,32 @@ document.addEventListener('DOMContentLoaded', () => {
         interestedJobs.forEach(job => {
             if (job && job.html) {
                 const jobElement = document.createElement('div');
-                jobElement.innerHTML = job.html;
+                
+                // Update paths for GitHub Pages
+                let htmlContent = job.html;
+                if (window.location.hostname.includes('github.io')) {
+                    htmlContent = htmlContent.replace(/src="\/(?!http)/g, 'src="/clearpath/');
+                }
+                
+                jobElement.innerHTML = htmlContent;
                 const jobCard = jobElement.firstChild;
                 
                 // Update the button to show "Remover"
                 const interestBtn = jobCard.querySelector('.interest-btn');
-                interestBtn.textContent = 'Remover';
-                interestBtn.classList.add('interested');
-                
-                // Add click handler for remove
-                interestBtn.addEventListener('click', function() {
-                    const remainingJobs = removeJob(job.id);
-                    jobCard.remove();
+                if (interestBtn) {
+                    interestBtn.textContent = 'Remover';
+                    interestBtn.classList.add('interested');
                     
-                    // If no jobs left, show empty state
-                    if (remainingJobs === 0) {
-                        console.log('No more jobs, showing empty state');
-                        showEmptyState();
-                    }
-                });
+                    interestBtn.addEventListener('click', function() {
+                        const remainingJobs = removeJob(job.id);
+                        jobCard.remove();
+                        
+                        if (remainingJobs === 0) {
+                            console.log('No more jobs, showing empty state');
+                            showEmptyState();
+                        }
+                    });
+                }
                 
                 jobList.appendChild(jobCard);
             }

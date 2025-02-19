@@ -213,10 +213,28 @@ function setupInterestButtons() {
                     html: jobCard.outerHTML
                 };
 
-                // Save to localStorage
+                // Save to localStorage with base path consideration
                 let interestedJobs = JSON.parse(localStorage.getItem('interestedJobs') || '[]');
+                
+                // Update paths in the HTML before storing
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = jobData.html;
+                
+                // Update image paths
+                const images = tempDiv.querySelectorAll('img');
+                images.forEach(img => {
+                    img.src = img.src.replace(window.location.origin, '');
+                    if (window.location.hostname.includes('github.io')) {
+                        img.src = img.src.replace('/clearpath/', '/');
+                    }
+                });
+                
+                jobData.html = tempDiv.innerHTML;
                 interestedJobs.push(jobData);
                 localStorage.setItem('interestedJobs', JSON.stringify(interestedJobs));
+                
+                // Show confirmation
+                alert('Vaga adicionada aos seus interesses!');
             }
         });
     });
