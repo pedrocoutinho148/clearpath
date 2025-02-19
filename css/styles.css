@@ -41,6 +41,10 @@ body {
     max-width: none;
 }
 
+.logo img {
+    content: url('../images/logo.png');
+}
+
 .nav-center {
     flex-grow: 1;
     display: flex;
