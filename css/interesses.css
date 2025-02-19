@@ -1,10 +1,10 @@
 .empty-state {
     text-align: center;
-    padding: 60px 20px;
+    padding: 20px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    margin: 40px auto;
+    margin: 20px auto;
     max-width: 600px;
 }
 
@@ -53,6 +53,9 @@
 
 /* When jobs are present */
 .opportunities-container h1 {
-    margin-bottom: 30px;
-    color: #333;
+    display: none;
+}
+
+.opportunities-container {
+    padding-top: 20px;
 }

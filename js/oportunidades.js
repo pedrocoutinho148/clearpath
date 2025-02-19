@@ -58,17 +58,19 @@ function seededRandom(seed) {
 
 const random = seededRandom(123); // Fixed seed for consistency
 
-function generateJobs(count = 500) {
+function generateJobs() {
     const jobs = [];
-    for (let i = 0; i < count; i++) {
-        const company = companies[Math.floor(random() * companies.length)];
-        const location = locations[Math.floor(random() * locations.length)];
-        const position = positions[Math.floor(random() * positions.length)];
-        const level = levels[Math.floor(random() * levels.length)];
-        const baseSalary = Math.floor((20000 + Math.floor(random() * 25000)) / 1000) * 1000;
+    const totalJobs = 500; // Fixed number of jobs
+    
+    for (let i = 0; i < totalJobs; i++) {
+        const company = companies[i % companies.length];
+        const position = positions[i % positions.length];
+        const level = levels[i % levels.length];
+        const location = locations[i % locations.length];
+        
+        const baseSalary = 20000 + (i % 15000); // Deterministic but varied salary
         const maxSalary = baseSalary + 4000;
-        const interested = Math.floor(random() * 100);
-
+        
         jobs.push({
             company: company.name,
             rating: company.rating,
@@ -76,22 +78,77 @@ function generateJobs(count = 500) {
             title: `${level} ${position}`,
             location: `${location}, Portugal`,
             salary: baseSalary,
-            salaryDisplay: `€${(baseSalary/1000)}k-${(maxSalary/1000)}k/ano`,
-            interested: interested
+            salaryDisplay: `€${Math.floor(baseSalary/1000)}k-${Math.floor(maxSalary/1000)}k/ano`,
+            interested: 50 + (i % 50) // Deterministic number of interested people
         });
     }
+    
     return jobs;
+}
+
+function updatePagination(totalJobs) {
+    const totalPages = Math.ceil(totalJobs / jobsPerPage);
+    const paginationDiv = document.querySelector('.pagination');
+    paginationDiv.innerHTML = '';
+    
+    // Previous button
+    const prevButton = document.createElement('button');
+    prevButton.textContent = '←';
+    prevButton.disabled = currentPage === 1;
+    prevButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayJobs(allJobs);
+        }
+    });
+    paginationDiv.appendChild(prevButton);
+    
+    // Page numbers
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, startPage + 4);
+    
+    if (endPage - startPage < 4) {
+        startPage = Math.max(1, endPage - 4);
+    }
+    
+    for (let i = startPage; i <= endPage; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.classList.toggle('active', i === currentPage);
+        pageButton.addEventListener('click', () => {
+            currentPage = i;
+            displayJobs(allJobs);
+        });
+        paginationDiv.appendChild(pageButton);
+    }
+    
+    // Next button
+    const nextButton = document.createElement('button');
+    nextButton.textContent = '→';
+    nextButton.disabled = currentPage === totalPages;
+    nextButton.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayJobs(allJobs);
+        }
+    });
+    paginationDiv.appendChild(nextButton);
+    
+    // Page info
+    const pageInfo = document.createElement('span');
+    pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
+    paginationDiv.appendChild(pageInfo);
 }
 
 function displayJobs(jobs) {
     const jobList = document.querySelector('.job-list');
-    jobList.innerHTML = '';
-
+    jobList.innerHTML = ''; // Clear existing jobs
+    
     const startIndex = (currentPage - 1) * jobsPerPage;
     const endIndex = startIndex + jobsPerPage;
-    const pageJobs = jobs.slice(startIndex, endIndex);
+    const jobsToDisplay = jobs.slice(startIndex, endIndex);
 
-    pageJobs.forEach(job => {
+    jobsToDisplay.forEach(job => {
         const jobCard = document.createElement('div');
         jobCard.className = 'job-card';
         jobCard.innerHTML = `
@@ -107,6 +164,7 @@ function displayJobs(jobs) {
                         <p class="location"><i class="fas fa-map-marker-alt"></i> ${job.location}</p>
                     </div>
                 </div>
+                <button class="bookmark-btn"><i class="far fa-bookmark"></i></button>
             </div>
             <div class="job-details">
                 <span class="salary">${job.salaryDisplay}</span>
@@ -117,86 +175,8 @@ function displayJobs(jobs) {
         jobList.appendChild(jobCard);
     });
 
-    setupPagination(jobs.length);
     setupInterestButtons();
-}
-
-function setupPagination(totalJobs) {
-    const totalPages = Math.ceil(totalJobs / jobsPerPage);
-    const pagination = document.querySelector('.pagination');
-    pagination.innerHTML = '';
-
-    // Previous button
-    const prevButton = document.createElement('button');
-    prevButton.textContent = '←';
-    prevButton.disabled = currentPage === 1;
-    prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            filterJobs();
-        }
-    });
-    pagination.appendChild(prevButton);
-
-    // Page numbers
-    for (let i = 1; i <= totalPages; i++) {
-        if (
-            i === 1 || 
-            i === totalPages || 
-            (i >= currentPage - 2 && i <= currentPage + 2)
-        ) {
-            const pageButton = document.createElement('button');
-            pageButton.textContent = i;
-            pageButton.classList.toggle('active', i === currentPage);
-            pageButton.addEventListener('click', () => {
-                currentPage = i;
-                filterJobs();
-            });
-            pagination.appendChild(pageButton);
-        } else if (
-            i === currentPage - 3 || 
-            i === currentPage + 3
-        ) {
-            const ellipsis = document.createElement('span');
-            ellipsis.textContent = '...';
-            pagination.appendChild(ellipsis);
-        }
-    }
-
-    // Next button
-    const nextButton = document.createElement('button');
-    nextButton.textContent = '→';
-    nextButton.disabled = currentPage === totalPages;
-    nextButton.addEventListener('click', () => {
-        if (currentPage < totalPages) {
-            currentPage++;
-            filterJobs();
-        }
-    });
-    pagination.appendChild(nextButton);
-}
-
-function filterJobs() {
-    const searchTerm = document.querySelector('.search-bar input').value.toLowerCase();
-    const ratingFilter = parseFloat(document.getElementById('rating-filter').value) || 0;
-    const salaryFilter = parseInt(document.getElementById('salary-filter').value) || 0;
-    const locationFilter = document.getElementById('location-filter').value.toLowerCase();
-    const experienceFilter = document.getElementById('experience-filter').value.toLowerCase();
-
-    const filteredJobs = allJobs.filter(job => {
-        const matchesSearch = 
-            job.title.toLowerCase().includes(searchTerm) || 
-            job.company.toLowerCase().includes(searchTerm);
-        const matchesRating = job.rating >= ratingFilter;
-        const matchesSalary = job.salary >= salaryFilter;
-        const matchesLocation = !locationFilter || job.location.toLowerCase().includes(locationFilter);
-        const matchesExperience = !experienceFilter || job.title.toLowerCase().includes(experienceFilter);
-
-        return matchesSearch && matchesRating && matchesSalary && 
-               matchesLocation && matchesExperience;
-    });
-
-    displayJobs(filteredJobs);
+    updatePagination(jobs.length);
 }
 
 function setupInterestButtons() {
@@ -261,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     container.appendChild(paginationDiv);
 
     // Generate exactly 500 jobs every time
-    allJobs = generateJobs(500);
+    allJobs = generateJobs();
     currentPage = 1;
     displayJobs(allJobs);
     
@@ -278,3 +258,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function filterJobs() {
+    const searchTerm = document.querySelector('.search-bar input').value.toLowerCase();
+    const ratingFilter = parseFloat(document.getElementById('rating-filter').value) || 0;
+    const salaryFilter = parseInt(document.getElementById('salary-filter').value) || 0;
+    const locationFilter = document.getElementById('location-filter').value.toLowerCase();
+    const experienceFilter = document.getElementById('experience-filter').value.toLowerCase();
+
+    const filteredJobs = allJobs.filter(job => {
+        const matchesSearch = 
+            job.title.toLowerCase().includes(searchTerm) || 
+            job.company.toLowerCase().includes(searchTerm);
+        const matchesRating = job.rating >= ratingFilter;
+        const matchesSalary = job.salary >= salaryFilter;
+        const matchesLocation = !locationFilter || job.location.toLowerCase().includes(locationFilter);
+        const matchesExperience = !experienceFilter || job.title.toLowerCase().includes(experienceFilter);
+
+        return matchesSearch && matchesRating && matchesSalary && 
+               matchesLocation && matchesExperience;
+    });
+
+    displayJobs(filteredJobs);
+}

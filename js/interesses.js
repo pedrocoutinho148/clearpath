@@ -3,17 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const emptyState = document.getElementById('emptyState');
     const jobList = document.getElementById('interestedJobs');
 
-    // Debug logs to check what's happening
-    console.log('Interested jobs:', interestedJobs);
-    console.log('Empty state element:', emptyState);
-    console.log('Job list element:', jobList);
-
     function showEmptyState() {
         emptyState.classList.remove('hidden');
         emptyState.classList.add('visible');
         jobList.classList.remove('visible');
         jobList.classList.add('hidden');
-        console.log('Showing empty state');
     }
 
     function showJobList() {
@@ -21,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         emptyState.classList.add('hidden');
         jobList.classList.remove('hidden');
         jobList.classList.add('visible');
-        console.log('Showing job list');
     }
 
     function removeJob(jobId) {
@@ -32,13 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (interestedJobs && interestedJobs.length > 0) {
-        console.log('Found interested jobs:', interestedJobs.length);
         showJobList();
-        
-        // Clear existing jobs
         jobList.innerHTML = '';
         
-        // Display the interested jobs
         interestedJobs.forEach(job => {
             if (job && job.html) {
                 const jobElement = document.createElement('div');
@@ -63,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         jobCard.remove();
                         
                         if (remainingJobs === 0) {
-                            console.log('No more jobs, showing empty state');
                             showEmptyState();
                         }
                     });
@@ -73,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     } else {
-        console.log('No interested jobs found, showing empty state');
         showEmptyState();
     }
 });
