@@ -48,16 +48,26 @@ let allJobs = [];
 let currentPage = 1;
 const jobsPerPage = 12;
 
+// Use a seeded random number generator for consistency
+function seededRandom(seed) {
+    return function() {
+        seed = (seed * 9301 + 49297) % 233280;
+        return seed / 233280;
+    };
+}
+
+const random = seededRandom(123); // Fixed seed for consistency
+
 function generateJobs(count = 500) {
     const jobs = [];
     for (let i = 0; i < count; i++) {
-        const company = companies[Math.floor(Math.random() * companies.length)];
-        const location = locations[Math.floor(Math.random() * locations.length)];
-        const position = positions[Math.floor(Math.random() * positions.length)];
-        const level = levels[Math.floor(Math.random() * levels.length)];
-        const baseSalary = Math.floor((20000 + Math.floor(Math.random() * 25000)) / 1000) * 1000;
+        const company = companies[Math.floor(random() * companies.length)];
+        const location = locations[Math.floor(random() * locations.length)];
+        const position = positions[Math.floor(random() * positions.length)];
+        const level = levels[Math.floor(random() * levels.length)];
+        const baseSalary = Math.floor((20000 + Math.floor(random() * 25000)) / 1000) * 1000;
         const maxSalary = baseSalary + 4000;
-        const interested = Math.floor(Math.random() * 100);
+        const interested = Math.floor(random() * 100);
 
         jobs.push({
             company: company.name,
@@ -250,8 +260,9 @@ document.addEventListener('DOMContentLoaded', () => {
     paginationDiv.className = 'pagination';
     container.appendChild(paginationDiv);
 
-    // Generate and display jobs
+    // Generate exactly 500 jobs every time
     allJobs = generateJobs(500);
+    currentPage = 1;
     displayJobs(allJobs);
     
     // Setup event listeners
