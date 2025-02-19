@@ -200,6 +200,11 @@ function setupInterestButtons() {
                 // Get job data
                 const jobCard = this.closest('.job-card');
                 
+                // Update interested count
+                const interestedCountElement = jobCard.querySelector('.interested-count');
+                const currentCount = parseInt(interestedCountElement.textContent.match(/\d+/)[0]);
+                interestedCountElement.innerHTML = `<i class="fas fa-user"></i> ${currentCount + 1} interessados`;
+                
                 // Get all the job information
                 const jobData = {
                     id: Date.now().toString(),
@@ -209,7 +214,7 @@ function setupInterestButtons() {
                     title: jobCard.querySelector('h2').textContent,
                     location: jobCard.querySelector('.location').textContent,
                     salary: jobCard.querySelector('.salary').textContent,
-                    interested: jobCard.querySelector('.interested-count').textContent,
+                    interested: interestedCountElement.textContent, // Updated count
                     html: jobCard.outerHTML
                 };
 
@@ -232,9 +237,6 @@ function setupInterestButtons() {
                 jobData.html = tempDiv.innerHTML;
                 interestedJobs.push(jobData);
                 localStorage.setItem('interestedJobs', JSON.stringify(interestedJobs));
-                
-                // Show confirmation
-                alert('Vaga adicionada aos seus interesses!');
             }
         });
     });
