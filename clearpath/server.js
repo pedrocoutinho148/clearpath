@@ -11,9 +11,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// Add console log to debug static file serving
-app.use(express.static('public'));
-app.use('/logo', express.static(path.join(__dirname, 'public/logo')));
+// Serve static files from root directory
+app.use(express.static(__dirname));
 
 // Add a new API endpoint
 app.get('/api/time', (req, res) => {
@@ -23,23 +22,23 @@ app.get('/api/time', (req, res) => {
 
 // Routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'paginainicial.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/oportunidades', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'oportunidades.html'));
+    res.sendFile(path.join(__dirname, 'oportunidades.html'));
 });
 
 app.get('/interesses', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'interesses.html'));
+    res.sendFile(path.join(__dirname, 'interesses.html'));
 });
 
 app.get('/contactos', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'contactos.html'));
+    res.sendFile(path.join(__dirname, 'contactos.html'));
 });
 
 app.get('/sobre', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'sobre.html'));
+    res.sendFile(path.join(__dirname, 'sobre.html'));
 });
 
 // Start the server
