@@ -3,6 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Check if we're on GitHub Pages
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const baseElement = document.createElement('base');
+        
+        if (isGitHubPages) {
+            baseElement.href = '/clearpath/';
+        } else {
+            baseElement.href = '/';
+        }
+        
+        document.head.prepend(baseElement);
+    </script>
     <title>Interesses - ClearPath</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/oportunidades.css">
