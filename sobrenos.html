@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Check if we're on GitHub Pages
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const baseElement = document.createElement('base');
+        
+        if (isGitHubPages) {
+            baseElement.href = '/clearpath/';
+        } else {
+            baseElement.href = '/';
+        }
+        
+        document.head.prepend(baseElement);
+    </script>
+    <!-- Favicon links with explicit sizes -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./images/icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./images/icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./images/icon.png">
+    
+    <!-- For iOS devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/icon.png">
+    
+    <!-- Legacy favicon fallback -->
+    <link rel="shortcut icon" type="image/png" href="./images/icon.png">
+    
+    <title>Sobre Nós - ClearPath</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/sobrenos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="/" class="logo-link">
+                <img src="./images/logo.png" alt="ClearPath" class="logo">
+            </a>
+        </div>
+        
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="./index.html">Página Inicial</a></li>
+                <li><a href="./oportunidades.html">Oportunidades</a></li>
+                <li><a href="./interesses.html">Interesses</a></li>
+                <li><a href="./contactos.html">Contactos</a></li>
+                <li><a href="./sobrenos.html">Sobre Nós</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <div class="search-container">
+                <input type="text" placeholder="Pesquisar..." class="search-input">
+                <button class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="auth-container">
+                <button class="login-button">Login</button>
+                <button class="signup-button">Signup</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="about-content">
+        <section class="about-summary">
+            <h1>Sobre Nós</h1>
+            <p class="summary-text">Somos três amigos portugueses a viver fora que percebemos uma grande falha em Portugal: estudantes e empregadores não estão ligados como deviam. Foi assim que surgiu o ClearPath! O nosso objetivo? Tornar o processo pós-graduação mais fácil e ajudar os alunos a arranjar aquele primeiro emprego de sonho. Queremos simplificar, conectar e criar oportunidades reais!</p>
+        </section>
+
+        <section class="team-members">
+            <div class="member-card">
+                <img src="./images/filipeneto.jpeg" alt="Filipe Neto" class="member-photo">
+                <h2>Filipe Neto</h2>
+                <p>Nascido em Lisboa e criado na terra dos dinossauros (Lourinhã), tenho 23 anos e estou emigrado em Inglaterra há 6 anos. Tenho um mestrado em contabilidade e finanças e licenciatura em gestão de recursos humanos, mas o que realmente importa é que gosto de futebol, Super Bock e do nosso país.</p>
+                <a href="https://www.linkedin.com/in/filipefneto/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/antoniorouxinol.jpeg" alt="António Rouxinol" class="member-photo">
+                <h2>António Rouxinol</h2>
+                <p>Nascido em Lisboa, com 26 anos e uma paixão pela música que se reflete na sua guitarra. Licenciado em Marketing e Mestre em Contabilidade e Finanças no Reino Unido, onde atualmente reside. Sócio do Benfica desde o nascimento, mantém viva a ligação às suas raízes portuguesas mesmo estando no estrangeiro.</p>
+                <a href="https://www.linkedin.com/in/antoniorouxinol/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+
+            <div class="member-card">
+                <img src="./images/pedrocoutinho.jpeg" alt="Pedro Coutinho" class="member-photo">
+                <h2>Pedro Coutinho</h2>
+                <p>Nascido em Lisboa, 26 anos, é Licenciado e Mestre em Engenharia Eletrónica. Trabalha atualmente como Arquiteto de Soluções de Cloud na ASML nos Países Baixos. Apaixonado por tecnologia e telemóveis, também dedica o seu tempo livre a filmar, editar vídeos e expressar a sua criatividade através do desenho e pintura em aguarela.</p>
+                <a href="https://www.linkedin.com/in/pedrocoutinho251/" target="_blank" class="linkedin-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/sobrenos.js"></script>
+</body>
+</html>
