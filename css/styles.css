@@ -108,37 +108,37 @@ body {
 
 .auth-container {
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
+}
+
+.login-button, .signup-button {
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .login-button {
-    color: #333;
-    background: none;
+    background: transparent;
     border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    color: #333;
 }
 
 .login-button:hover {
-    color: #004AAD;
+    color: #0056b3;
 }
 
 .signup-button {
-    background-color: #004AAD;
+    background: #0056b3;
     color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.3s ease;
 }
 
 .signup-button:hover {
-    background-color: #003880;
+    background: #003d82;
 }
 
 .home-content {
