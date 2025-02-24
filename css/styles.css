@@ -7,7 +7,8 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #ffffff;
+    background-color: #f5f5f5;
+    margin: 0;  /* Ensure no default margins */
 }
 
 .navbar {
@@ -250,4 +251,128 @@ h1 {
     .slogan {
         font-size: 1.4rem;
     }
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #fff;
+    padding: 40px 0 20px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2d2d2d;
+}
+
+.footer-section p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-section ul li a:hover {
+    color: #007bff;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    font-size: 22px;
+    transition: all 0.2s;
+}
+
+.social-links a .fa-linkedin {
+    color: #0077b5;
+}
+
+.social-links a .fa-facebook {
+    color: #1877f2;
+}
+
+.social-links a .fa-instagram {
+    color: #e4405f;
+}
+
+.social-links a .fa-youtube {
+    color: #ff0000;
+}
+
+.social-links a .fa-tiktok {
+    color: #000000;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 20px 20px 0;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    background-color: #fff;
+}
+
+.footer-bottom p {
+    color: #888;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Add this to your existing footer CSS */
+.contact-info li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+}
+
+.contact-info li i {
+    color: #004AAD;
+    width: 16px;
 }

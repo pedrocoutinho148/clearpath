@@ -81,7 +81,7 @@ body {
 }
 
 .rating {
-    color: #ffc107;
+    color: #004AAD;
     font-size: 14px;
 }
 
@@ -141,10 +141,9 @@ body {
     background: #0056b3;
 }
 
-.interest-btn.interested {
-    background: #e9ecef;
-    color: #666;
-    cursor: default;
+.interest-btn.interested,
+button.interessa-me.interested {
+    background-color: #ced4da !important;
 }
 
 /* Responsive design */
@@ -314,4 +313,68 @@ body {
 .pagination button:last-child {
     font-size: 18px;
     padding: 6px 12px;
+}
+
+/* Update all blue colors to match brand color */
+.job-card .company-name {
+    color: #004AAD;
+}
+
+.apply-btn {
+    background-color: #004AAD;
+    color: white;
+    /* ... rest of button styles ... */
+}
+
+.apply-btn:hover {
+    background-color: #003c8a; /* slightly darker shade for hover */
+}
+
+/* If there are any other blue elements, they should also use #004AAD */
+
+/* Main search button in opportunities page */
+.opportunities-search-button {
+    background-color: #004AAD;
+}
+
+.opportunities-search-button:hover {
+    background-color: #003c8a;
+}
+
+/* Interessa-me! buttons */
+.interest-btn, 
+button.interessa-me {
+    background-color: #004AAD !important;
+    color: white;
+}
+
+.interest-btn:hover, 
+button.interessa-me:hover {
+    background-color: #003c8a !important;
+}
+
+/* Pagination buttons */
+.pagination .page-link {
+    color: #004AAD;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #004AAD !important;
+    border-color: #004AAD;
+    color: white;
+}
+
+.pagination .page-link:hover {
+    background-color: #003c8a;
+    border-color: #003c8a;
+    color: white;
+}
+
+/* Any other blue buttons or elements */
+.btn-primary {
+    background-color: #004AAD;
+}
+
+.btn-primary:hover {
+    background-color: #003c8a;
 }
